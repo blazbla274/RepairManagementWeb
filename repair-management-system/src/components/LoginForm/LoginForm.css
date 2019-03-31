@@ -1,0 +1,34 @@
+.box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 230px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    background-color: rgb(90, 0, 53);
+    text-align: center
+}
+input[type="text"], input[type="password"] {
+    padding: 10px 20px;
+    display: inline-block;
+    margin: 7px;
+}
+input[type="text"] {
+    margin-top: 30px;
+}
+input[type="submit"] {
+    display: block;
+    position: relative;
+    top: 30px;
+    left:50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    padding: 10px 30px;
+}
+input {
+    border-radius: 7px;
+    border: 1px solid gray;
+    outline: none;
+}
