@@ -10,6 +10,13 @@
     background-color: rgb(90, 0, 53);
     text-align: center
 }
+.header {
+    position: absolute;
+    display: block;
+    top: -50%;
+    width: 150%;
+    transform: translateX(-15%);
+}
 input[type="text"], input[type="password"] {
     padding: 10px 20px;
     display: inline-block;
