@@ -10,7 +10,7 @@ const LoginForm = (props) => {
           </div>
           <input type="text" placeholder="Login"/>
           <input type="password" placeholder="Password" />
-          <input type="submit" value="Submit"/>
+          <input type="submit" value="Submit" onClick={props.loginAction}/>
       </div>
     );
   else
