@@ -5,10 +5,11 @@
     transform: translate(-50%,-50%);
     width: 300px;
     height: 230px;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid magenta;
     border-radius: 10px;
-    background-color: rgb(90, 0, 53);
-    text-align: center
+    background-color: rgb(10, 10, 10);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 .header {
     position: absolute;
@@ -18,12 +19,19 @@
     transform: translateX(-15%);
 }
 .header > h1 {
-    color: rgb(51, 1, 30);
+    color: magenta;
 }
-input[type="text"], input[type="password"] {
+input[type="text"], 
+input[type="password"] {
     padding: 10px 20px;
     display: inline-block;
     margin: 7px;
+    background-color: rgb(252, 177, 252);
+    color: black;
+}
+input[type="text"]::placeholder, 
+input[type="password"]::placeholder {
+    color: black;
 }
 input[type="text"] {
     margin-top: 30px;
@@ -36,9 +44,14 @@ input[type="submit"] {
     transform: translateX(-50%);
     cursor: pointer;
     padding: 10px 30px;
+    background-color: rgb(218, 49, 218);
 }
 input {
     border-radius: 7px;
-    border: 1px solid gray;
+    border: 1px solid magenta;
     outline: none;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    text-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
 }
