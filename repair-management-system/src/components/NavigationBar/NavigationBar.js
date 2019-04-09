@@ -7,9 +7,9 @@ const NavigationBar = (props) => {
       <nav>
         <div className="nav-container">
           <ul className="options">
-            <li>Repairs</li>
-            <li>History</li>
-            <li>Settings</li>
+            <li onClick={() => props.changeBookmarkAction("Repairs")}>Repairs</li>
+            <li onClick={() => props.changeBookmarkAction("History")}>History</li>
+            <li onClick={() => props.changeBookmarkAction("Settings")}>Settings</li>
           </ul>
           <ul className="logout">
             <li onClick={props.logoutAction}>Logout</li>
