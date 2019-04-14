@@ -7,7 +7,6 @@ import Settings  from './Settings/Settings';
 const Exposition = (props) => {
   if(props.loged) {
     let option;
-    console.log(props.activeBookmark);
     switch(props.activeBookmark) {
         case "Repairs": option = <Repairs/>;
           break;
@@ -18,6 +17,7 @@ const Exposition = (props) => {
         default: option = <Repairs/>
           break;
     }
+
     return (
       <div className="exposition-container">
         {option}
