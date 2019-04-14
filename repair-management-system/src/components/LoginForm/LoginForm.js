@@ -11,6 +11,7 @@ const LoginForm = (props) => {
           <input type="text" placeholder="Login"/>
           <input type="password" placeholder="Password" />
           <input type="submit" value="Submit" onClick={props.loginAction}/>
+          <a>Log in using Facebook.</a>
       </div>
     );
   else

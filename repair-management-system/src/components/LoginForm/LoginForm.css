@@ -55,3 +55,13 @@ input {
     font-size: 15px;
     text-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
 }
+a {
+    color: rgb(212, 209, 209);
+    font-size: 12px;
+    position: relative;
+    top: 44px;
+    cursor: pointer;
+}
+a:active {
+    color: rgb(212, 209, 209);
+}
