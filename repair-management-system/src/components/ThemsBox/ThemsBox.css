@@ -1,0 +1,17 @@
+.themsBox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+}
+
+.themsBox > div {
+    width: 45px;
+    height: 45px;
+    background: white;
+    margin: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 2px solid;
+    cursor: pointer;
+}
