@@ -5,7 +5,7 @@ const NavigationBar = (props) => {
   if(props.loged)
     return (
       <nav>
-        <div className="nav-container">
+        <div className="nav-container" style={props.style.backgroundColor}>
           <ul className="options">
             <li onClick={() => props.changeBookmarkAction("Repairs")}>Repairs</li>
             <li onClick={() => props.changeBookmarkAction("History")}>History</li>

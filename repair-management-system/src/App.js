@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LoginForm from './components/LoginForm/LoginForm';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Exposition from './components/Exposition/Exposition';
+import ThemsBox from './components/ThemsBox/ThemsBox';
 
 class App extends Component {
   state = {
@@ -61,6 +62,7 @@ class App extends Component {
           loged={this.state.loged} 
           loginAction={this.logInHandler}
           style={style}/>
+        <ThemsBox/>
         <NavigationBar 
           loged={this.state.loged} 
           logoutAction={this.logOutHandler}

@@ -1,5 +1,4 @@
 .nav-container {
-    background: rgb(214, 0, 214);
     border-bottom: 1px solid rgba(202, 202, 202, 0.685);
     position: relative;
 }
@@ -22,7 +21,7 @@ li {
     font-weight: 400;
     display: inline-block;
     cursor: pointer;
-    color: rgba(90, 0, 53, 1);
+    color: rgb(14, 0, 8);
     position: relative;
     transition: 100ms ease;
 }
@@ -38,7 +37,7 @@ ul.options > li::after {
     right: 0px;
     height: 4px;
     width: 0%;
-    background: rgba(250, 190, 225, 0.938);
+    background: rgba(233, 227, 230, 0.938);
     transition: 300ms ease-in-out;
 }
 
@@ -51,7 +50,7 @@ ul.logout {
     right: 0px;
 }
 ul.logout > li {
-    color: #4d0225;
+    color: #d8d2d2;
     letter-spacing: 1px;
     font-weight: 600;
     font-size: 18px;
