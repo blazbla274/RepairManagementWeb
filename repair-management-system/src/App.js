@@ -39,16 +39,37 @@ class App extends Component {
   }
 
   render() {
+
+    const style = {
+      fontColor: {
+        color: "#1347d4"
+      },
+      backgroundColor: {
+        backgroundColor: "#1347d4"
+      },
+      inputBackgroundColor: {
+        backgroundColor: "#5582ff"
+      },
+      borderColor: {
+        borderColor: "#1347d4"
+      }
+    }
+    
     return (
       <div className="App">
-        <LoginForm loged={this.state.loged} loginAction={this.logInHandler}/>
+        <LoginForm 
+          loged={this.state.loged} 
+          loginAction={this.logInHandler}
+          style={style}/>
         <NavigationBar 
           loged={this.state.loged} 
           logoutAction={this.logOutHandler}
-          changeBookmarkAction={this.changeBookmarkHandler}/>
+          changeBookmarkAction={this.changeBookmarkHandler}
+          style={style}/>
         <Exposition 
           loged={this.state.loged} 
-          activeBookmark={this.state.activeBookmark} />
+          activeBookmark={this.state.activeBookmark} 
+          style={style}/>
       </div>
     );
   }

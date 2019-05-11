@@ -5,7 +5,7 @@
     transform: translate(-50%,-50%);
     width: 300px;
     height: 230px;
-    border: 1px solid magenta;
+    border: 1px solid;
     border-radius: 10px;
     background-color: rgb(10, 10, 10);
     text-align: center;
@@ -18,15 +18,11 @@
     width: 150%;
     transform: translateX(-15%);
 }
-.header > h1 {
-    color: magenta;
-}
 input[type="text"], 
 input[type="password"] {
     padding: 10px 20px;
     display: inline-block;
     margin: 7px;
-    background-color: rgb(252, 177, 252);
     color: black;
 }
 input[type="text"]::placeholder, 
@@ -44,11 +40,10 @@ input[type="submit"] {
     transform: translateX(-50%);
     cursor: pointer;
     padding: 10px 30px;
-    background-color: rgb(218, 49, 218);
 }
 input {
     border-radius: 7px;
-    border: 1px solid magenta;
+    border: 1px solid;
     outline: none;
     color: white;
     font-weight: 500;
