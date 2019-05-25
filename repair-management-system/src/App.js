@@ -3,6 +3,7 @@ import LoginForm from './components/LoginForm/LoginForm';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Exposition from './components/Exposition/Exposition';
 import ThemsBox from './components/ThemsBox/ThemsBox';
+import Thems from './components/ThemsBox/Thems';
 
 class App extends Component {
   state = {
@@ -49,50 +50,11 @@ class App extends Component {
   loadThem = (them) => {
     switch(them) {
       case "Blue":
-      return {
-        fontColor: {
-          color: "#1347d4"
-        },
-        backgroundColor: {
-          backgroundColor: "#1347d4"
-        },
-        inputBackgroundColor: {
-          backgroundColor: "#5582ff"
-        },
-        borderColor: {
-          borderColor: "#1347d4"
-        }
-      }
+      return Thems.blue
       case "Red":
-      return {
-        fontColor: {
-          color: "#b70d0d"
-        },
-        backgroundColor: {
-          backgroundColor: "#b70d0d"
-        },
-        inputBackgroundColor: {
-          backgroundColor: "#ea6464"
-        },
-        borderColor: {
-          borderColor: "#b70d0d"
-        }
-      }
+      return Thems.red
       case "Pink":
-      return {
-        fontColor: {
-          color: "#d600d6"
-        },
-        backgroundColor: {
-          backgroundColor: "#d600d6"
-        },
-        inputBackgroundColor: {
-          backgroundColor: "#ed5ced"
-        },
-        borderColor: {
-          borderColor: "#d600d6"
-        }
-      }
+      return Thems.pink
       default: this.loadThem("Blue");
     }
   };
