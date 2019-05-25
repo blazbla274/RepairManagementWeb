@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     loged: false,
     activeBookmark: "Repairs",
-    ableBookmarks: ["Repairs", "History", "Settings"],
+    ableBookmarks: ["Cars", "History", "Settings"],
     themName: "Blue"
   }
 
@@ -74,6 +74,7 @@ class App extends Component {
         <NavigationBar 
           loged={this.state.loged} 
           logoutAction={this.logOutHandler}
+          bookmarks={this.state.ableBookmarks}
           changeBookmarkAction={this.changeBookmarkHandler}
           style={style}/>
         <Exposition 

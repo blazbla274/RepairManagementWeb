@@ -1,6 +1,6 @@
 import React from 'react';
 import './Exposition.css';
-import Repairs from './Repairs/Repairs';
+import Cars from './Cars/Cars';
 import History from './History/History';
 import Settings  from './Settings/Settings';
 
@@ -8,13 +8,13 @@ const Exposition = (props) => {
   if(props.loged) {
     let option;
     switch(props.activeBookmark) {
-        case "Repairs": option = <Repairs/>;
+        case "Repairs": option = <Cars/>;
           break;
         case "History": option = <History/>;
           break;
         case "Settings": option = <Settings/> ;
           break;
-        default: option = <Repairs/>
+        default: option = <Cars/>
           break;
     }
 
