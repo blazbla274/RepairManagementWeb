@@ -12,7 +12,7 @@ const Exposition = (props) => {
           break;
         case "History": option = <History/>;
           break;
-        case "Settings": option = <Settings/> ;
+        case "Settings": option = <Settings style={props.style}/> ;
           break;
         default: option = <Cars/>
           break;

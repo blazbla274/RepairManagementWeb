@@ -12,6 +12,9 @@ const Settings = (props) => {
   const [login, setLogin] = useState([]);
   const [newPassword, setNewPassword] = useState([]);
 
+  const [passwordError, setPasswordError] = useState([]);
+  const [phoneError, setPhoneError] = useState([]);
+
   useEffect(() => {
     axios.get('http://dummy.restapiexample.com/api/v1/employees')
       .then(response => {
@@ -29,7 +32,7 @@ const Settings = (props) => {
     /*zmiana w bazie danych */
   }
 
-  const handlerSaveNewPassword = () => {
+  const handlerSaveNewPassword = (value) => {
 
   }
 
@@ -40,15 +43,19 @@ const Settings = (props) => {
           <Record title="First Name" value={firstName} />
           <Record title="Last Name" value={lastName} />
           <Record title="Login" value={login} />
-          <Record 
+          <Record
+            style={props.style}
             title="Password" 
-            value={newPassword} 
+            value={newPassword}
+            errorMessage={passwordError} 
             onChangeHandler={setNewPassword} 
             onSave={handlerSaveNewPassword} />
           <Record title="Adress" value={adress} />
-          <Record 
-            title="Phone" 
+          <Record
+            style={props.style}
+            title="Phone"
             value={phone} 
+            errorMessage={phoneError} 
             onChangeHandler={setPhone} 
             onSave={handlerSaveChangePhone}
             max="6"/>
