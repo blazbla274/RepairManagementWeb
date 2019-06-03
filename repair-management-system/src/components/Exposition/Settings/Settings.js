@@ -32,7 +32,6 @@ const Settings = (props) => {
   const handlerSaveChangePhone = (value) => {
     if(value.length != 9) {
       setPhoneError("Wrong length.");
-      console.log("zła długość");
     } else if (value.split("").some(el => isNaN(el))) {
       setPhoneError("Only numbers.");
     } else {
@@ -43,10 +42,11 @@ const Settings = (props) => {
   }
 
   const handlerSaveNewPassword = (value) => {
+    console.log("długość: " + value);
     if(!value) {
       setPasswordError("Password can't be empty.");
     } else {
-      setPhoneError("");
+      setPasswordError("");
     }
   }
 

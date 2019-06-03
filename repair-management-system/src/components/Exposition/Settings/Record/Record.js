@@ -22,6 +22,7 @@ const Settings = (props) => {
         target.style.color = "black";
         if(target.value === "" || initValue === target.value) {
            setButtonHidden(true);
+           props.onSave("");
         }
     }
 
