@@ -30,19 +30,24 @@ const Settings = (props) => {
   }, []);
 
   const handlerSaveChangePhone = (value) => {
-    if(value.length != 6 || value.length != 9) {
+    if(value.length != 9) {
       setPhoneError("Wrong length.");
-    } 
-    if(value.array.some(element => NaN == parseInt(element) )) {
+      console.log("zła długość");
+    } else if (value.split("").some(el => isNaN(el))) {
       setPhoneError("Only numbers.");
+    } else {
+      setPhoneError("");
     }
+    
     /*zmiana w bazie danych */
   }
 
   const handlerSaveNewPassword = (value) => {
-    if(value.length < 1) {
+    if(!value) {
       setPasswordError("Password can't be empty.");
-    } 
+    } else {
+      setPhoneError("");
+    }
   }
 
   return (

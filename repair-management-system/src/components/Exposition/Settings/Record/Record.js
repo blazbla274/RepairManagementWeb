@@ -9,11 +9,7 @@ const Settings = (props) => {
     const onChangeHandler = (event) => props.onChangeHandler && props.onChangeHandler(event.target.value);
 
     const onSave = (value) => {
-        
-        if(!value) {
-        } else {
-            props.onSave(value);
-        }
+        props.onSave(value);
     }
     
     const onFocus = (target, background) => {
@@ -25,7 +21,7 @@ const Settings = (props) => {
         target.style.background = background.backgroundColor;
         target.style.color = "black";
         if(target.value === "" || initValue === target.value) {
-            setButtonHidden(true);
+           setButtonHidden(true);
         }
     }
 
