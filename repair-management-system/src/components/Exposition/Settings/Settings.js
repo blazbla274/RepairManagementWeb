@@ -18,22 +18,31 @@ const Settings = (props) => {
   useEffect(() => {
     axios.get('http://dummy.restapiexample.com/api/v1/employees')
       .then(response => {
-        console.log(response)
-        console.log(response.data)
+        //console.log(response)
+        //console.log(response.data)
         setfirstName("Stefan");
         setLastName("Nowak");
         setAdress("Saperów Śląskich 12f/45");
         setPhone("633844092");
         setLogin("Stefffek");
+        setNewPassword("sdfgrfg");
       });
   }, []);
 
   const handlerSaveChangePhone = (value) => {
+    if(value.length != 6 || value.length != 9) {
+      setPhoneError("Wrong length.");
+    } 
+    if(value.array.some(element => NaN == parseInt(element) )) {
+      setPhoneError("Only numbers.");
+    }
     /*zmiana w bazie danych */
   }
 
   const handlerSaveNewPassword = (value) => {
-
+    if(value.length < 1) {
+      setPasswordError("Password can't be empty.");
+    } 
   }
 
   return (
