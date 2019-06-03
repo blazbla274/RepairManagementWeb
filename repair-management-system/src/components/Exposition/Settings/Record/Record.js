@@ -28,7 +28,9 @@ const Settings = (props) => {
 
     return (
         <div className={style.setingsRecord}>
-            <p className={style.p}>{props.title}:</p>
+            <p className={props.onChangeHandler ? 
+                [style.p, style.whiteTitle].join(' ') :
+                [style.p, style.grayTitle].join(' ')}>{props.title}:</p>
             <input
                 className={props.onChangeHandler ?
                     [style.input, style.canChange].join(' ') :
