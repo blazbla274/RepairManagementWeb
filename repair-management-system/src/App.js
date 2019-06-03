@@ -4,6 +4,7 @@ import NavigationBar from './components/NavigationBar/NavigationBar';
 import Exposition from './components/Exposition/Exposition';
 import ThemsBox from './components/ThemsBox/ThemsBox';
 import Thems from './components/ThemsBox/Thems';
+import Background from './components/Background/Background';
 
 class App extends Component {
   state = {
@@ -65,6 +66,7 @@ class App extends Component {
     
     return (
       <div className="App">
+        <Background/>
         <LoginForm 
           loged={this.state.loged} 
           loginAction={this.logInHandler}
