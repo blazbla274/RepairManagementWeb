@@ -25,7 +25,7 @@ const Settings = (props) => {
         setAdress("Saperów Śląskich 12f/45");
         setPhone("633844092");
         setLogin("Stefffek");
-        setNewPassword("sdfgrfg");
+        setNewPassword("xdxd");
       });
   }, []);
 

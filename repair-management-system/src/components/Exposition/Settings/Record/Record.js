@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Settings = (props) => {
     const [buttonHidden, setButtonHidden] = useState(true);
-    const [initValue, setInitValue] = useState(() => props.value);
+    const [initValue, setInitValue] = useState("633844092");
 
     const onChangeHandler = (event) => props.onChangeHandler && props.onChangeHandler(event.target.value);
 
@@ -20,9 +20,11 @@ const Settings = (props) => {
     const focusOut = (target, background) => {
         target.style.background = background.backgroundColor;
         target.style.color = "black";
-        if(target.value === "" || initValue === target.value) {
-           setButtonHidden(true);
-           props.onSave("");
+        if(target.value === "") {
+            setButtonHidden(true);
+            props.onSave("");
+        } else if (initValue === target.value) {
+            setButtonHidden(true);
         }
     }
 
