@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './Record.module.css';
 import axios from 'axios';
 
 const Settings = (props) => {
     const [buttonHidden, setButtonHidden] = useState(true);
-    const [initValue, setInitValue] = useState("633844092");
+    const [errorMessage, setErrorMessage] = useState([]);
 
     const onChangeHandler = (event) => props.onChangeHandler && props.onChangeHandler(event.target.value);
 
     const onSave = (value) => {
-        props.onSave(value);
+        console.log("onSave: "+ value);
+        
+        if(validate(value)) {
+            props.onSave(value);
+            setButtonHidden(true);
+        }
     }
     
     const onFocus = (target, background) => {
@@ -20,12 +25,37 @@ const Settings = (props) => {
     const focusOut = (target, background) => {
         target.style.background = background.backgroundColor;
         target.style.color = "black";
-        if(target.value === "") {
-            setButtonHidden(true);
-            props.onSave("");
-        } else if (initValue === target.value) {
-            setButtonHidden(true);
+
+        validate(target.value);
+    }
+
+    const validatePassword = (value) => {
+        if(!value) {
+            setErrorMessage("Password can't be empty.");
+            return false;
+        } else {
+            setErrorMessage("");
+            return true;
         }
+    }
+
+    const validatePhone = (value) => {
+        if(value.length != 9) {
+            setErrorMessage("Wrong length.");
+            return false;
+        } else if (value.split("").some(el => isNaN(el))) {
+            setErrorMessage("Only numbers.");
+            return false;
+        } else {
+            setErrorMessage("");
+            return true;
+        }
+    }
+
+    const validate = (value) => {
+        return props.title.toUpperCase() === "PASSWORD" ? 
+            validatePassword(value) : 
+            validatePhone(value);
     }
 
     return (
@@ -45,8 +75,8 @@ const Settings = (props) => {
                 onBlur={props.style ? (event) => focusOut(event.target, props.style.inputBackgroundColor) : null}
                 style={props.style ? props.style.inputBackgroundColor : null}
                 onClick={props.onSave ? () => setButtonHidden(false) : null} />
-            {props.errorMessage ? (
-                <p className={style.valueError}>{props.errorMessage}</p>
+            {errorMessage ? (
+                <p className={style.valueError}>{errorMessage}</p>
             ) : (null)}
             {!buttonHidden ? (
                 <div

@@ -12,9 +12,6 @@ const Settings = (props) => {
   const [login, setLogin] = useState([]);
   const [newPassword, setNewPassword] = useState([]);
 
-  const [passwordError, setPasswordError] = useState([]);
-  const [phoneError, setPhoneError] = useState([]);
-
   useEffect(() => {
     axios.get('http://dummy.restapiexample.com/api/v1/employees')
       .then(response => {
@@ -30,24 +27,12 @@ const Settings = (props) => {
   }, []);
 
   const handlerSaveChangePhone = (value) => {
-    if(value.length != 9) {
-      setPhoneError("Wrong length.");
-    } else if (value.split("").some(el => isNaN(el))) {
-      setPhoneError("Only numbers.");
-    } else {
-      setPhoneError("");
-    }
-    
     /*zmiana w bazie danych */
   }
 
   const handlerSaveNewPassword = (value) => {
     console.log("długość: " + value);
-    if(!value) {
-      setPasswordError("Password can't be empty.");
-    } else {
-      setPasswordError("");
-    }
+
   }
 
   return (
@@ -61,7 +46,6 @@ const Settings = (props) => {
             style={props.style}
             title="Password" 
             value={newPassword}
-            errorMessage={passwordError} 
             onChangeHandler={setNewPassword} 
             onSave={handlerSaveNewPassword} />
           <Record title="Adress" value={adress} />
@@ -69,7 +53,6 @@ const Settings = (props) => {
             style={props.style}
             title="Phone"
             value={phone} 
-            errorMessage={phoneError} 
             onChangeHandler={setPhone} 
             onSave={handlerSaveChangePhone}
             max="6"/>
