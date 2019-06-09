@@ -9,6 +9,7 @@ import Background from './components/Background/Background';
 class App extends Component {
   state = {
     loged: false,
+    userId: null,
     activeBookmark: "Repairs",
     ableBookmarks: ["Cars", "History", "Settings"],
     themName: "Blue"
@@ -16,7 +17,8 @@ class App extends Component {
 
   logInHandler = () => {
     this.setState({
-      loged: true
+      loged: true,
+      userId: 1
     });
   }
 
@@ -80,6 +82,7 @@ class App extends Component {
           changeBookmarkAction={this.changeBookmarkHandler}
           style={style}/>
         <Exposition 
+          userId={this.state.userId}
           loged={this.state.loged} 
           activeBookmark={this.state.activeBookmark} 
           style={style}/>

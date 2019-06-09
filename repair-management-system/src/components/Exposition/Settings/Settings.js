@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import style from './Settings.module.css';
 import axios from 'axios';
 import Record from './Record/Record';
+import homePath from '../../../configuration/configuration';
 
 const Settings = (props) => {
 
@@ -13,13 +14,24 @@ const Settings = (props) => {
   const [newPassword, setNewPassword] = useState([]);
 
   useEffect(() => {
-    axios.get('http://dummy.restapiexample.com/api/v1/employees')
+    console.log(`${homePath}/api/customer/${props.userId}`);
+    axios.get(`${homePath}/api/customer/${props.userId}`)
       .then(response => {
-        //console.log(response)
+        let addres;
+        axios.get(`${homePath}/api/customer/${props.userId}/address`)
+          .then(response => {
+            addres = 
+              response.city + " " + 
+              response.postCode  + " " +
+              response.street + " " +
+              response.number;
+          });
+        alert(response);
+        alert(addres);
         //console.log(response.data)
-        setfirstName("Stefan");
+        setfirstName(response.firstName);
         setLastName("Nowak");
-        setAdress("Saperów Śląskich 12f/45");
+        setAdress(addres);
         setPhone("633844092");
         setLogin("Stefffek");
         setNewPassword("xdxd");
