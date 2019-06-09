@@ -1,3 +1,3 @@
-const homePath = "https://localhost:8080";
+const homePath = "http://localhost:8080";
 
 export default homePath;
