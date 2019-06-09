@@ -17,26 +17,24 @@ const Settings = (props) => {
     axios.get(`${homePath}/api/customer/${props.userId}`)
       .then(response => {
         let addres;
-        /*axios.get(`${homePath}/api/customer/${props.userId}/address`)
+        axios.get(`${homePath}/api/customer/${props.userId}/address`)
           .then(response => {
-            addres = 
-              response.city + " " + 
-              response.postCode  + " " +
-              response.street + " " +
-              response.number;
-          });*/
-        alert(response);
-        //alert(addres);
-        //console.log(response.data)
+            addres = `${response.city} ${response.postCode} ${response.street} ${response.number}`;
+          });
         setfirstName(response.firstName);
-        setLastName("Nowak");
+        setLastName(response.lastName);
         setAdress(addres);
-        setPhone("633844092");
-        setLogin("Stefffek");
-        setNewPassword("xdxd");
+        setPhone(response.phoneNumber);
+        setLogin("unknown");
+        setNewPassword("unknown");
       })
       .catch(function (error) {
-        alert(`asked patch: ${homePath}/api/customer/${props.userId}`);
+        setfirstName("unknown");
+        setLastName("unknown");
+        setAdress("unknown");
+        setPhone("unknown");
+        setLogin("unknown");
+        setNewPassword("unknown");
         alert(error);
       });
   }, []);
