@@ -14,20 +14,19 @@ const Settings = (props) => {
   const [newPassword, setNewPassword] = useState([]);
 
   useEffect(() => {
-    console.log(`${homePath}/api/customer/${props.userId}`);
     axios.get(`${homePath}/api/customer/${props.userId}`)
       .then(response => {
         let addres;
-        axios.get(`${homePath}/api/customer/${props.userId}/address`)
+        /*axios.get(`${homePath}/api/customer/${props.userId}/address`)
           .then(response => {
             addres = 
               response.city + " " + 
               response.postCode  + " " +
               response.street + " " +
               response.number;
-          });
+          });*/
         alert(response);
-        alert(addres);
+        //alert(addres);
         //console.log(response.data)
         setfirstName(response.firstName);
         setLastName("Nowak");
@@ -35,6 +34,10 @@ const Settings = (props) => {
         setPhone("633844092");
         setLogin("Stefffek");
         setNewPassword("xdxd");
+      })
+      .catch(function (error) {
+        alert(`asked patch: ${homePath}/api/customer/${props.userId}`);
+        alert(error);
       });
   }, []);
 
