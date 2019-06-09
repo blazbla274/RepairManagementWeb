@@ -41,11 +41,13 @@ const Settings = (props) => {
 
   const handlerSaveChangePhone = (value) => {
     /*zmiana w bazie danych */
+    axios.post(`${homePath}/api/customer/${props.userId}`, {
+      phoneNumber: value,
+    })
   }
 
   const handlerSaveNewPassword = (value) => {
-    console.log("długość: " + value);
-
+    console.log("handlerSaveNewPassword");
   }
 
   return (
@@ -57,18 +59,18 @@ const Settings = (props) => {
           <Record title="Login" value={login} />
           <Record
             style={props.style}
-            title="Password" 
+            title="Password"
             value={newPassword}
-            onChangeHandler={setNewPassword} 
+            onChangeHandler={setNewPassword}
             onSave={handlerSaveNewPassword} />
           <Record title="Adress" value={adress} />
           <Record
             style={props.style}
             title="Phone"
-            value={phone} 
-            onChangeHandler={setPhone} 
+            value={phone}
+            onChangeHandler={setPhone}
             onSave={handlerSaveChangePhone}
-            max="6"/>
+            max="6" />
         </div>
       </div>
     </div>
