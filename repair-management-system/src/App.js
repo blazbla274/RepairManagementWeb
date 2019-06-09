@@ -11,7 +11,7 @@ class App extends Component {
     loged: false,
     userId: null,
     activeBookmark: "Repairs",
-    ableBookmarks: ["Cars", "History", "Settings"],
+    ableBookmarks: ["Open", "Cars", "History", "Settings"],
     themName: "Blue"
   }
 
