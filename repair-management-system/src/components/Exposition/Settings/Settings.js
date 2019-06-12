@@ -15,16 +15,15 @@ const Settings = (props) => {
 
   useEffect(() => {
     axios.get(`${homePath}/api/customer/${props.userId}`)
-      .then(response => {
-        let addres;
-        axios.get(`${homePath}/api/customer/${props.userId}/address`)
-          .then(response => {
-            addres = `${response.city} ${response.postCode} ${response.street} ${response.number}`;
-          });
-        setfirstName(response.firstName);
-        setLastName(response.lastName);
+      .then(async (response) => {
+        let addres = "";
+        const addressRespond = await axios.get(response.data._links.address.href)
+        addres = `${addressRespond.data.city} ${addressRespond.data.postCode} ${addressRespond.data.street} ${addressRespond.data.number}`;
+
+        setfirstName(response.data.firstName);
+        setLastName(response.data.lastName);
         setAdress(addres);
-        setPhone(response.phoneNumber);
+        setPhone(response.data.phoneNumber);
         setLogin("unknown");
         setNewPassword("unknown");
       })

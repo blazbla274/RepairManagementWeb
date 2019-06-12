@@ -18,7 +18,7 @@ class App extends Component {
   logInHandler = () => {
     this.setState({
       loged: true,
-      userId: 1
+      userId: 2
     });
   }
 
@@ -35,7 +35,6 @@ class App extends Component {
           stateCorrect = true;
           return;
       }
-      console.log("element");
     });
     
     if(stateCorrect)
