@@ -11,7 +11,7 @@ const Settings = (props) => {
     const onSave = (value) => {
         console.log("onSave: "+ value);
         
-        if(validate(value)) {
+        if(props.validate(value)) {
             props.onSave(value);
             setButtonHidden(true);
         }
@@ -26,36 +26,9 @@ const Settings = (props) => {
         target.style.background = background.backgroundColor;
         target.style.color = "black";
 
-        validate(target.value);
-    }
-
-    const validatePassword = (value) => {
-        if(!value) {
-            setErrorMessage("Password can't be empty.");
-            return false;
-        } else {
-            setErrorMessage("");
-            return true;
+        if(props.validate(target.value)) {
+            setButtonHidden(true);
         }
-    }
-
-    const validatePhone = (value) => {
-        if(value.length != 9) {
-            setErrorMessage("Wrong length.");
-            return false;
-        } else if (value.split("").some(el => isNaN(el))) {
-            setErrorMessage("Only numbers.");
-            return false;
-        } else {
-            setErrorMessage("");
-            return true;
-        }
-    }
-
-    const validate = (value) => {
-        return props.title.toUpperCase() === "PASSWORD" ? 
-            validatePassword(value) : 
-            validatePhone(value);
     }
 
     return (
@@ -75,8 +48,8 @@ const Settings = (props) => {
                 onBlur={props.style ? (event) => focusOut(event.target, props.style.inputBackgroundColor) : null}
                 style={props.style ? props.style.inputBackgroundColor : null}
                 onClick={props.onSave ? () => setButtonHidden(false) : null} />
-            {errorMessage ? (
-                <p className={style.valueError}>{errorMessage}</p>
+            {props.errorMessage ? (
+                <p className={style.valueError}>{props.errorMessage}</p>
             ) : (null)}
             {!buttonHidden ? (
                 <div

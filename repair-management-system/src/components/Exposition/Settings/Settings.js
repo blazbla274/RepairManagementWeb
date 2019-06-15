@@ -12,6 +12,9 @@ const Settings = (props) => {
   const [phone, setPhone] = useState([]);
   const [login, setLogin] = useState([]);
   const [newPassword, setNewPassword] = useState([]);
+  const [phoneError, setPhoneError] = useState([]);
+  const [passwordError, setPasswordError] = useState([]);
+
 
   useEffect(() => {
     axios.get(`${homePath}/api/customer/${props.userId}`)
@@ -25,7 +28,7 @@ const Settings = (props) => {
         setAdress(addres);
         setPhone(response.data.phoneNumber);
         setLogin("unknown");
-        setNewPassword("unknown");
+        setNewPassword("");
       })
       .catch(function (error) {
         setfirstName("unknown");
@@ -33,7 +36,7 @@ const Settings = (props) => {
         setAdress("unknown");
         setPhone("unknown");
         setLogin("unknown");
-        setNewPassword("unknown");
+        setNewPassword("");
         alert(error);
       });
   }, []);
@@ -49,6 +52,29 @@ const Settings = (props) => {
     console.log("handlerSaveNewPassword");
   }
 
+  const validatePassword = (value) => {
+    if (!value) {
+      setPasswordError("Password can't be empty.");
+      return false;
+    } else {
+      setPasswordError("");
+      return true;
+    }
+  }
+
+  const validatePhone = (value) => {
+    if (value.length != 9) {
+      setPhoneError("Wrong length.");
+      return false;
+    } else if (value.split("").some(el => isNaN(el))) {
+      setPhoneError("Only numbers.");
+      return false;
+    } else {
+      setPhoneError("");
+      return true;
+    }
+  }
+
   return (
     <div>
       <div className={style.setingsBox}>
@@ -60,15 +86,19 @@ const Settings = (props) => {
             style={props.style}
             title="Password"
             value={newPassword}
+            errorMessage={passwordError}
             onChangeHandler={setNewPassword}
-            onSave={handlerSaveNewPassword} />
+            onSave={handlerSaveNewPassword} 
+            validate={validatePassword}/>
           <Record title="Adress" value={adress} />
           <Record
             style={props.style}
             title="Phone"
             value={phone}
+            errorMessage={phoneError}
             onChangeHandler={setPhone}
             onSave={handlerSaveChangePhone}
+            validate={validatePhone}
             max="6" />
         </div>
       </div>
