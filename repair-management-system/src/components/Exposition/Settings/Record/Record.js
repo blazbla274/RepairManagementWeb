@@ -25,8 +25,9 @@ const Settings = (props) => {
     const focusOut = (target, background) => {
         target.style.background = background.backgroundColor;
         target.style.color = "black";
+        console.log(target.value);
 
-        if(props.validate(target.value)) {
+        if(props.validate(target.value) && target.value === props.databaseValue) {
             setButtonHidden(true);
         }
     }

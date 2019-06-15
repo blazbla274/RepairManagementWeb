@@ -10,6 +10,7 @@ const Settings = (props) => {
   const [lastName, setLastName] = useState([]);
   const [adress, setAdress] = useState([]);
   const [phone, setPhone] = useState([]);
+  const [dataBasePhone, setDataBasePhone] = useState([]);
   const [login, setLogin] = useState([]);
   const [newPassword, setNewPassword] = useState([]);
   const [phoneError, setPhoneError] = useState([]);
@@ -27,6 +28,7 @@ const Settings = (props) => {
         setLastName(response.data.lastName);
         setAdress(addres);
         setPhone(response.data.phoneNumber);
+        setDataBasePhone(response.data.phoneNumber);
         setLogin("unknown");
         setNewPassword("");
       })
@@ -43,9 +45,15 @@ const Settings = (props) => {
 
   const handlerSaveChangePhone = (value) => {
     /*zmiana w bazie danych */
-    axios.post(`${homePath}/api/customer/${props.userId}`, {
-      phoneNumber: value,
-    })
+    try {
+      axios.post(`${homePath}/api/customer/${props.userId}`, {
+        phoneNumber: value,
+      });
+      setDataBasePhone(value);
+      //setPhone(value);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const handlerSaveNewPassword = (value) => {
@@ -89,6 +97,7 @@ const Settings = (props) => {
             errorMessage={passwordError}
             onChangeHandler={setNewPassword}
             onSave={handlerSaveNewPassword} 
+            databaseValue=""
             validate={validatePassword}/>
           <Record title="Adress" value={adress} />
           <Record
@@ -99,6 +108,7 @@ const Settings = (props) => {
             onChangeHandler={setPhone}
             onSave={handlerSaveChangePhone}
             validate={validatePhone}
+            databaseValue={dataBasePhone}
             max="6" />
         </div>
       </div>
