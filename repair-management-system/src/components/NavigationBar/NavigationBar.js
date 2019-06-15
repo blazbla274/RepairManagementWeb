@@ -8,7 +8,7 @@ const NavigationBar = (props) => {
         <div className="nav-container" style={props.style.backgroundColor}>
           <ul className="options">
             {props.bookmarks.map(el => (
-              <li onClick={() => props.changeBookmarkAction(el)}>{el}</li>
+              <li key={el} onClick={() => props.changeBookmarkAction(el)}>{el}</li>
             ))}
           </ul>
           <ul className="logout">

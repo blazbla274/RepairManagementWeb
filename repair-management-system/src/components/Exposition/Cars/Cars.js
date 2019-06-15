@@ -18,7 +18,7 @@ const Cars = (props) => {
             })
             .catch(error => {
               console.log(error);
-              return {name: el.name, type: "", key: key++}
+              return {name: el.name, type: "unknown", key: key++}
             })
         })).then(results => setCars(results))
       })
