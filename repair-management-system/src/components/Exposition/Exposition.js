@@ -11,13 +11,11 @@ const Exposition = (props) => {
     switch (props.activeBookmark) {
       case "Open": option = <Open style={props.style} userId={props.userId} />;
         break;
-      case "Repairs": option = <Cars />;
-        break;
       case "History": option = <History />;
         break;
       case "Settings": option = <Settings style={props.style} userId={props.userId} />;
         break;
-      default: option = <Cars />
+      default: option = <Cars userId={props.userId}/>
         break;
     }
 

@@ -1,34 +1,37 @@
-import  React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Cars.module.css';
 import homePath from '../../../configuration/configuration';
 
-const Repairs = (props) => {
+const Cars = (props) => {
+  const [cars, setCars] = useState([]);
 
-  let cars = [];
   useEffect(() => {
-    /*axios.get(`${homePath}/api/customer/${props.userId}/items`)
+    axios.get(`${homePath}/api/customer/${props.userId}/items`)
       .then(response => {
-        response.array.forEach(element => {
-          axios.get(`${homePath}/api/item/${element.id}/itemType`)
-          .then(res => {
-            cars.push({
-              name: element.name,
-              type: res.type
+        let items = [];
+        let key = 0;
+        Promise.all(response.data._embedded.item.map(el => {
+          return axios.get(el._links.itemType.href)
+            .then(respond => {
+              return { name: el.name, type: respond.data.type, key: key++ }
             })
-          });
-        });
+            .catch(error => {
+              console.log(error);
+              return {name: el.name, type: "", key: key++}
+            })
+        })).then(results => setCars(results))
       })
       .catch(function (error) {
-
         alert(error);
-      });*/
+      });
   }, []);
-  return(
+
+  return (
     <div>
-      Cars
+      {cars.map(el => <p key={el.key}>{el.name}:    :{el.type}</p>)}
     </div>
   );
 }
 
-export default Repairs;
+export default Cars;
