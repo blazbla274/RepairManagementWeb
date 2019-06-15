@@ -43,16 +43,16 @@ const Settings = (props) => {
       });
   }, []);
 
-  const handlerSaveChangePhone = (value) => {
+  const handlerSaveChangePhone = async (value) => {
     /*zmiana w bazie danych */
     try {
-      axios.post(`${homePath}/api/customer/${props.userId}`, {
+      const respond = await axios.post(``, {
         phoneNumber: value,
       });
       setDataBasePhone(value);
-      //setPhone(value);
     } catch (error) {
       console.log(error);
+      setPhoneError("Database error.");
     }
   }
 

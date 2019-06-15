@@ -9,9 +9,8 @@ const Settings = (props) => {
     const onChangeHandler = (event) => props.onChangeHandler && props.onChangeHandler(event.target.value);
 
     const onSave = (value) => {
-        console.log("onSave: "+ value);
         
-        if(props.validate(value)) {
+        if(props.databaseValue !== value && props.validate(value)) {
             props.onSave(value);
             setButtonHidden(true);
         }
@@ -25,7 +24,6 @@ const Settings = (props) => {
     const focusOut = (target, background) => {
         target.style.background = background.backgroundColor;
         target.style.color = "black";
-        console.log(target.value);
 
         if(props.validate(target.value) && target.value === props.databaseValue) {
             setButtonHidden(true);
