@@ -18,7 +18,7 @@ class App extends Component {
   logInHandler = () => {
     this.setState({
       loged: true,
-      userId: 2
+      userId: 3
     });
   }
 

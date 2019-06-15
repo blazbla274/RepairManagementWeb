@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Cars.module.css';
+import style from './Cars.module.css';
 import homePath from '../../../configuration/configuration';
 
 const Cars = (props) => {
@@ -29,7 +29,20 @@ const Cars = (props) => {
 
   return (
     <div>
-      {cars.map(el => <p key={el.key}>{el.name}:    :{el.type}</p>)}
+      <div className={style.container}>
+        <div className={[style.record, style.header].join(" ")}>
+          <span>Lp.</span>
+          <p>Name</p>
+          <p>Type</p>
+        </div>
+        {cars.map(el =>
+          <div className={style.record} key={el.key}>
+            <span>{el.key + 1}</span>
+            <p>{el.name}</p>
+            <p>{el.type}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
