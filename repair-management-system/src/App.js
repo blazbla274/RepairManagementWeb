@@ -10,7 +10,7 @@ class App extends Component {
   state = {
     loged: false,
     userId: null,
-    activeBookmark: "Repairs",
+    activeBookmark: "Open",
     ableBookmarks: ["Open", "Cars", "History", "Settings"],
     themName: "Blue"
   }
@@ -18,7 +18,7 @@ class App extends Component {
   logInHandler = () => {
     this.setState({
       loged: true,
-      userId: 3
+      userId: 1
     });
   }
 
