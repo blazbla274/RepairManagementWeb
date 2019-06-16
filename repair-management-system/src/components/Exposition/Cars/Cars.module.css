@@ -2,13 +2,12 @@
     margin-top: 100px;
 }
 .record {
-    max-width: 300px;
+    max-width: 500px;
     width: 90%;
     margin: 10px auto;
     background: rgba(128, 128, 128, 0.281);
     border: 1px solid black;
     border-radius: 3px;
-    
 }
 .record > p, .record > span {
     box-sizing: border-box;
