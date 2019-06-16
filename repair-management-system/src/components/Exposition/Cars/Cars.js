@@ -19,7 +19,7 @@ const Cars = (props) => {
             })
             .catch(error => {
               console.log(error);
-              return {name: el.name, type: "unknown", key: key++}
+              return { name: el.name, type: "unknown", key: key++ }
             })
         })).then(results => setCars(results))
       })
@@ -30,13 +30,15 @@ const Cars = (props) => {
 
   return (
     <div className={style.container}>
-      <Table 
-        objects={cars} 
-        lp 
-        headers={["Name", "Type"]} 
-        propsOrder={["name", "type"]}
-        propsFlex={[1,3,3]}
-        width={500}/>
+      {cars.length ?
+        <Table
+          objects={cars}
+          lp
+          headers={["Name", "Type"]}
+          propsOrder={["name", "type"]}
+          propsFlex={[1, 3, 3]}
+          width={500} /> :
+        <p className={style.noCars}>You have not cars added.</p>}
     </div>
   );
 }

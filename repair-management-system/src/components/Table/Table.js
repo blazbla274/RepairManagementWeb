@@ -4,7 +4,7 @@ import style from './Table.module.css';
 const Table = (props) => {
 
     const containerStyle = {
-        maxWidth: `${props.width}px`,
+        minWidth: `${props.width}px`,
     }
     let flex = props.propsFlex;
     if (!props.lp)
@@ -16,8 +16,8 @@ const Table = (props) => {
     }
 
     return (
-        <div>
-            <div style={containerStyle} className={[style.record, style.header].join(" ")}>
+        <div style={containerStyle}>
+            <div className={[style.record, style.header].join(" ")}>
                 {props.lp ? <span style={spanWidth}>Lp.</span> : null}
                 {props.headers.map((el, id) =>
                     <p
@@ -26,7 +26,7 @@ const Table = (props) => {
                     </p>)}
             </div>
             {props.objects.map(el =>
-                <div style={containerStyle} className={style.record} key={el.key}>
+                <div className={style.record} key={el.key}>
                     {props.lp ? <span style={spanWidth}>{el.key + 1}</span> : null}
                     {props.propsOrder.map((name, id) =>
                         <p

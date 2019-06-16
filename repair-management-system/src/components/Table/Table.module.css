@@ -13,6 +13,8 @@
     font-size: 22px;
     border-right: 1px solid black;
     overflow: hidden;
+  
+    overflow: hidden;
     vertical-align: top;
 }
 .record > p:last-child {
