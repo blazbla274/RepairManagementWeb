@@ -7,21 +7,9 @@ const History = (props) => {
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
-    axios.get(`${homePath}/api/customer/${props.userId}/items`)
-      .then(response => {
-        let items = [];
-        let key = 0;
-        Promise.all(response.data._embedded.item.map(el => {
-          return axios.get(el._links.requests.href)
-            .then(respond => {
-              console.log(respond.data)
-              return { key: key++, car: el.name,  }
-            })
-            .catch(error => {
-              console.log(error);
-              return {name: el.name, type: "unknown", key: key++}
-            })
-        })).then(results => setRequests(results))
+    axios.get(`${homePath}/api/request?status=can&item.owner.id=${props.userId}`)
+      .then(response => {  
+        setRequests(response.data._embedded.request)
       })
       .catch(function (error) {
         alert(error);

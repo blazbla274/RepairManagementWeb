@@ -1,0 +1,28 @@
+.record {
+    width: 90%;
+    margin: 10px auto;
+    background: rgba(128, 128, 128, 0.281);
+    border: 1px solid black;
+    border-radius: 3px;
+}
+.record > p, .record > span {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0px;
+    padding: 5px 10px;
+    font-size: 22px;
+    border-right: 1px solid black;
+    overflow: hidden;
+    vertical-align: top;
+}
+.record > p:last-child {
+    border-right: 0px;
+}
+.record > span {
+    text-align: center;
+}
+.header > p, .header > span {
+    font-size: 35px;
+    text-align: center;
+    opacity: 0.8;
+}

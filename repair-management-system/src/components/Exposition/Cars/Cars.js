@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import style from './Cars.module.css';
 import homePath from '../../../configuration/configuration';
+import Table from '../../Table/Table';
 
 const Cars = (props) => {
   const [cars, setCars] = useState([]);
@@ -28,21 +29,14 @@ const Cars = (props) => {
   }, []);
 
   return (
-    <div>
-      <div className={style.container}>
-        <div className={[style.record, style.header].join(" ")}>
-          <span>Lp.</span>
-          <p>Name</p>
-          <p>Type</p>
-        </div>
-        {cars.map(el =>
-          <div className={style.record} key={el.key}>
-            <span>{el.key + 1}</span>
-            <p>{el.name}</p>
-            <p>{el.type}</p>
-          </div>
-        )}
-      </div>
+    <div className={style.container}>
+      <Table 
+        objects={cars} 
+        lp 
+        headers={["Name", "Type"]} 
+        propsOrder={["name", "type"]}
+        propsFlex={[1,3,3]}
+        width={500}/>
     </div>
   );
 }
