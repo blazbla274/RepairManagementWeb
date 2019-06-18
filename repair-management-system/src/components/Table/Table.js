@@ -27,7 +27,7 @@ const Table = (props) => {
                     </p>)}
             </div>
             {props.objects.map(el =>
-                <div className={style.record} key={el.key}>
+                <div onClick={() => props.linkFunc(el.key)} className={style.record} key={el.key}>
                     {props.lp ? <span style={spanWidth}>{el.key + 1}</span> : null}
                     {props.propsOrder.map((name, id) =>
                         <p

@@ -17,7 +17,6 @@ const Settings = (props) => {
   const [passwordError, setPasswordError] = useState([]);
 
   useEffect(() => {
-    console.log("settoings: "+ props.userId)
     axios.get(`${homePath}/api/customer/${props.userId}`)
       .then(async (response) => {
         let addres = "";
