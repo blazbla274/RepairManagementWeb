@@ -7,6 +7,12 @@ import Table from '../../Table/Table';
 const History = (props) => {
   const [requests, setRequests] = useState([]);
   const [hideDetails, setHideDetails] = useState(true);
+  const [start, setStart] = useState([]);
+  const [end, setEnd] = useState([]);
+  const [description, setDescription] = useState([]);
+  const [status, setStatus] = useState([]);
+  const [car, setCar] = useState([]);
+  const [manager, setManager] = useState([]);
 
   useEffect(() => {
     axios.get(`${homePath}/api/request?status=can&item.owner.id=${props.userId}`)
@@ -42,6 +48,13 @@ const History = (props) => {
   }, []);
 
   const showHistory = (key) => {
+    const record = requests.filter(el => el.key === key);
+    setStart(record.start);
+    setEnd(record.end);
+    setDescription(record.description);
+    setStatus(record.status);
+    setCar(record.car);
+    setManager(record.manager);
     setHideDetails(false);
   }
 
@@ -65,8 +78,9 @@ const History = (props) => {
             <p className={style.noHistory}>You have not requests history.</p>:null}
       
       {!hideDetails ?
-      <div>Details
-        <button onClick={hideHistory}></button>
+      <div className={style.detailsContainer}>Details
+        
+        <button onClick={hideHistory}>Back</button>
       </div>: null}
     </div>
   );
