@@ -4,7 +4,7 @@ import style from './Table.module.css';
 const Table = (props) => {
 
     const containerStyle = {
-        minWidth: `${props.width}px`,
+        maxWidth: `${props.width}px`,
         margin: "5px auto"
     }
     let flex = props.propsFlex;
