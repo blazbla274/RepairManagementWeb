@@ -46,10 +46,10 @@ const History = (props) => {
         <Table
           objects={requests}
           lp
-          headers={["Car", "Start", "End", "Description", "Manager", "Status"]}
-          propsOrder={["car", "start", "end", "description", "manager", "status"]}
-          propsFlex={[1, 2, 2, 2, 4, 2.5, 2]}
-          width={1200} /> :
+          headers={["Car", "End", "Status"]}
+          propsOrder={["car", "end", "status"]}
+          propsFlex={[1.5, 4, 3, 3]}
+          width={600} /> :
         <p className={style.noHistory}>You have not requests history.</p>}
     </div>
   );
