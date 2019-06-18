@@ -48,7 +48,7 @@ const History = (props) => {
   }, []);
 
   const showHistory = (key) => {
-    const record = requests.filter(el => el.key === key);
+    const record = requests.filter(el => el.key === key)[0];
     setStart(record.start);
     setEnd(record.end);
     setDescription(record.description);
@@ -78,8 +78,14 @@ const History = (props) => {
             <p className={style.noHistory}>You have not requests history.</p>:null}
       
       {!hideDetails ?
-      <div className={style.detailsContainer}>Details
-        <div class={style.propertieBox}></div>
+      <div className={style.detailsContainer}>
+        <h3>Details</h3>
+        <div><span>Begin data: {start}</span></div>
+        <div><span>End data: {end}</span></div>
+        <div><span>Car: {car}</span></div>
+        <div><span>Description: {description}</span></div>
+        <div><span>Status: {status}</span></div>
+        <div><span>Manager: {manager}</span></div>
         <button onClick={hideHistory}>Back</button>
       </div>: null}
     </div>

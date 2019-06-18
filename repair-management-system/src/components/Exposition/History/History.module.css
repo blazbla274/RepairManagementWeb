@@ -13,12 +13,12 @@
     max-width: 500px;
     border-radius: 4px;
     margin: 0 auto;
-    background: rgba(0, 0, 0, 0.774);
+    background: rgba(0, 0, 0, 0.6);
 }
 .detailsContainer > button {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 15px;
+    right: 15px;
     padding: 2px 5px;
     border-radius: 4px;
     font-size: 18px;
@@ -29,10 +29,31 @@
     cursor: pointer;
     transition: all 300ms ease;
 }
+.detailsContainer > h3 {
+    text-align: center;
+    font-size: 30px;
+    padding-top: 20px;
+}
 .detailsContainer > button:hover {
     color: rgb(255, 255, 255);
     background: rgba(0, 0, 0, 0.349);
 }
-.propertieBox {
-    
+.detailsContainer > div {
+    font-size: 22px;
+    padding: 4px 10px;
+    padding-left: 60px;
+    margin: 0 auto;
+}
+@media(max-width: 500px) {
+    .detailsContainer > div {
+        font-size: 22px;
+        padding: 4px 10px;
+        text-align: center;
+    }
+}
+.detailsContainer {
+    padding-bottom: 60px;
+}
+.detailsContainer > div > span { 
+    background: rgba(255, 255, 255, 0.11);
 }
