@@ -1,5 +1,6 @@
 .container {
-    margin-top: 100px;
+    margin: 100px auto;
+    max-width: 550px;
 }
 .noCars {
     text-align: center;
