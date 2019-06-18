@@ -79,7 +79,7 @@ const History = (props) => {
       
       {!hideDetails ?
       <div className={style.detailsContainer}>Details
-        
+        <div class={style.propertieBox}></div>
         <button onClick={hideHistory}>Back</button>
       </div>: null}
     </div>
