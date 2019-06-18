@@ -46,8 +46,10 @@ const Settings = (props) => {
   const handlerSaveChangePhone = async (value) => {
     /*zmiana w bazie danych */
     try {
-      const respond = await axios.post(``, {
-        phoneNumber: value,
+      const respond = await axios.put(`${homePath}/api/customer/${props.userId}`, {
+          firstName: firstName,
+          lastName: lastName,
+          phoneNumber: value
       });
       setDataBasePhone(value);
     } catch (error) {
