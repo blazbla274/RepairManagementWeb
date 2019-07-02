@@ -8,6 +8,7 @@ class MainRouter extends Component {
       <Router>
         <div>
           <Route path="/:token" component={App} />
+          <Route path="/" component={App} />
         </div>
       </Router>
     );
