@@ -23,7 +23,13 @@ class App extends Component {
 
   logInHandler = (login, password, token) => {
     if (!!login && !!password) {
-
+      console.log("loged")
+      this.setState({
+        loged: true,
+        userId: 1,
+        email: "Jakisemail@interia.pl",
+        isActive: true
+      })
     } else if (!!token) {
       axios.get(`${homePath}/user/me`, {
         headers: {
@@ -43,8 +49,7 @@ class App extends Component {
             loged: true
           })
         }
-      })
-        .catch(error => {
+      }).catch(error => {
           console.log(error);
         })
     }
@@ -81,6 +86,7 @@ class App extends Component {
       this.setState({
         token: token
       });
+      axios.defaults.headers['Authorization'] = `Bearer ${token}`;
       this.logInHandler(null, null, token);
     }
   }
