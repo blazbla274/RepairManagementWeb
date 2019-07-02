@@ -44,6 +44,7 @@ class App extends Component {
   }
 
   changeThemHandler = (themName) => {
+    console.log(this.props.history.location.pathname);
     this.setState({
       themName: themName
     });
