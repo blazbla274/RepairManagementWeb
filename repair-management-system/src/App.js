@@ -63,6 +63,7 @@ class App extends Component {
       isActive: false,
       email: null,
     });
+    axios.defaults.headers['Authorization'] = ``;
     window.open("http://localhost:3000","_self")
   }
 
