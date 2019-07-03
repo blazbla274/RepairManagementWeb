@@ -43,7 +43,7 @@ const Open = (props) => {
           propsOrder={["car", "start", "description", "manager"]}
           propsFlex={[1, 3, 2, 4, 3]}
           width={900} /> :
-        <p className={style.noHistory}>You have not requests history.</p>}
+        <p className={style.noHistory}>You have not open requests.</p>}
     </div>
   );
 }
