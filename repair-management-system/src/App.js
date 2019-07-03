@@ -36,8 +36,7 @@ class App extends Component {
           Authorization: 'Bearer ' + token //the token is a variable which holds the token
         }
       }).then(response => {
-        console.log(response.data.isActive)
-        if (response.data.isActive) {
+        if (response.data.active) {
           this.setState({
             loged: true,
             userId: response.data.id,
