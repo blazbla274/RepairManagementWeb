@@ -12,8 +12,10 @@ const Cars = (props) => {
       .then(response => {
         let items = [];
         let key = 0;
+        console.log(response.data)
         Promise.all(response.data._embedded.item.map(el => {
-          return axios.get(el._links.itemType.href)
+          console.log(el)
+          return axios.get(el._links.type.href)
             .then(respond => {
               return { name: el.name, type: respond.data.type, key: key++ }
             })
